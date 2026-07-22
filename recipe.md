@@ -199,11 +199,52 @@ def test_letter_that_repeats():
     game.guess("l")
     assert "l l _ _ _" in game.display_board()
 
-# win, loose, empty word bank raises error
+"""
+Given that the player has correctly guessed all letters in the word
+the game will print out "🎉 You Win! 🎉" 
+"""    
+def test_player_wins():
+    game = Hangman(["cat"], secret_word = "cat") 
+    game.guess("c")
+    game.guess("a")
+    result = game.guess("t")
+    assert result == "🎉 You Win! 🎉"
+    assert game.won_game is True
+    assert game.lost_game is False
+
+"""
+Given that the player has used their maximum of incorrect guesses (6)
+the game will print out "You Lost!" 
+"""    
+def test_player_looses():
+    game = Hangman(["cat"], secret_word = "cat") 
+    missed_letters("sefrwd")
+    for letter in missed_letters[:-1]:
+        assert game.guess(letter) == "incorrect" 
+    result = game.guess(missed_letters[-1])
+    assert result == "😩 You Lost! 😩"
+    assert game.lost_game is True
+    assert game.won_game is False
+
+"""
+Given an empty word bank an error will be raised
+"""
+def test_game_will_not_start_without_word_bank():
+    with pytest.raises(ValueError, match = "Game will not start without wordbank. \nPlease insert a list of words of your chosen category."):
+        Hangman([]) #self.word_bank
+
+"""
+Given end of game the game board will reset and a new game will start.
+"""
+def test_reset_board():
+    game = Hangman(["cat", "dog"], secret_word = "cat")
+    game.guess("c")
+    game.guess("a")
+    game.guess("t")
+    game.reset_game(secret_word = "dog")
+    assert game.secret_word == "dog"
+    assert game.missed_letters == ""
+    assert game.correct_letters == ""
+    assert game_status == False 
 
 
-_Encode each example as a test. You can add to the above list as you go._
-
-## 4. Implement the Behaviour
-
-_After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
