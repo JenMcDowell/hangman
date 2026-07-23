@@ -60,7 +60,6 @@ def enter_name():
         name = "Player"
     print(f"Welcome to the game {name}!! 🤗")    
     return name
-    
-    
+      
 # This function will display the game board
-#def display_board(self):
+#def display_board(self): 
