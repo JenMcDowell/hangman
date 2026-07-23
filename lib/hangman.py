@@ -66,8 +66,7 @@ def enter_name():
     print(f" 🤗 Welcome to the game {name}!! 🤗\n")   
     print("How to play Hangman 🕹️: \n\n The computer thinks of a secret word and displays a row of blank dashes on the screen representing the individual letters.\n\n The player guesses one letter that they think is in the word and the computer notifies the player if this is the correct guess by filling in the space that represents the letter. \n\n If the letter is not in the secret word, the computer displays the incorrect letter and displays a single body part of the hangman.\n\n The player has 6 incorrect guesses per word.\n\n The player wins if they figure out the word before the full hangman is displayed and the computer wins if the drawing is complete.") 
     return name
-    
-    
+      
 # This function will display the game board
 
 #end is used for the addition of any string at the end of the output of the python print statement and 
@@ -164,3 +163,4 @@ while True:
 
 # display_board(missed_letters="rtg", correct_letters="ca", secret_word="cat")
 # guess(already_guessed= "ca") 
+#def display_board(self):
