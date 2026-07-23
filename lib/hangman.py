@@ -154,8 +154,7 @@ while True:
             secret_word = get_random_word(word_bank)
             game_status = False
         else:
-            break 
-        
+            break
 
 
 
@@ -164,4 +163,4 @@ while True:
 # enter_name()
 
 # display_board(missed_letters="rtg", correct_letters="ca", secret_word="cat")
-# guess(already_guessed= "ca")
+# guess(already_guessed= "ca") 
