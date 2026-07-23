@@ -24,7 +24,7 @@ class Hangman:
     #   set maximum (6) number of incorrect guesses ("you have made "5" incorrect guesses")
     #   greeting of player after name entry
     
-    def __init__(self, [word_bank], secret_word = None):  #Python random library to help with picking of secret word
+    def __init__([word_bank], secret_word = None):  #Python random library to help with picking of secret word
         # Parameters:
         #   word_bank: list of str from which a secret word is selected
         #   secret_word: str 
@@ -33,7 +33,7 @@ class Hangman:
         #   game_status should be set to false
         pass # No code here yet
 
-    def enter_name(self, name):
+    def enter_name(name):
         # Parameters:
         #   name: string representing users name
         # Returns:
@@ -42,7 +42,7 @@ class Hangman:
         #   Print the statement from name entered in: "Welcome Jennifer, Daphna, and Alicja!" 
         pass # No code here yet
 
-    def guess(self, letter):
+    def guess_word(letter):
         # Parameters: 
         #   letter: string representing the guessed letter
         # Returns:
@@ -61,7 +61,7 @@ class Hangman:
 
     def display_board(self):
         # Parameters: 
-        #   self 
+        #   missed_letters, correct_letters, secret_word 
         # Returns:
         #   hangman (body parts) picture for the missed guess  (No incorrect guesses will have empty stand)
         #   returned missed letters to remind user of letters used
@@ -70,7 +70,7 @@ class Hangman:
         #   None
         pass # No code here yet
 
-        def won_game(self):
+        def won_game():
         # Parameters: 
         #   self 
         # Returns:
@@ -80,7 +80,7 @@ class Hangman:
         #   None
         pass # No code here yet
 
-        def lost_game(self):
+        def lost_game():
         # Parameters: 
         #   self 
         # Returns:
@@ -90,7 +90,7 @@ class Hangman:
         #   None
         pass # No code here yet
 
-        def reset_game(self, secret_word = None):
+        def reset_game(secret_word = None):
         # Parameters: 
         #   self 
         # Returns:
