@@ -138,10 +138,10 @@ def test_correct_letter():
 """
 Given the users guesses an incorrect letter record and report the incorrect guess
 """
-def test_correct_letter():
+def test_incorrect_letter():
     game = Hangman(["cat"], secret_word = "cat")
     result = game.guess("y")
-    assert result == "You guessed correctly"
+    assert result == "You guessed incorrectly"
     assert game.missed_letter == "y" 
     assert game.correct_letter == ""   
 
