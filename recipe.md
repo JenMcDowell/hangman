@@ -155,8 +155,9 @@ def test_normlize_an_uppercase_letter():
     assert game.correct_letter == "a"
 
 """
-Given a non-alphabetical char guess, guess will be rejected 
+****Given a non-alphabetical char guess, guess will be rejected 
 with a error statment.
+****Changed this to individual tests for number and symbol with monkeypatch in order to test the input method.
 """
 def test_nonalpha_rejected():
     game = Hangman(["cat"], secret_word = "cat")   
@@ -248,3 +249,10 @@ def test_reset_board():
     assert game_status == False 
 
 
+***** Improvement Ideas:***** 
+- not hard code word bank, by have multiple text files to make it more random
+- categorie with multiple words i.e. movie titles, have code accept multiple words and punctution, would have seperate rules for it to autofill where punctution is and allows for white space
+- leaderboards- use CSV of how many guess to get word, etc.  Append to it for each player.  Keeps track of same players info and can add new player
+- hints if player is close to end of game (autofill a random letter)
+- timed games (also add to leaderboard to quickest time)
+- increase the number of "body parts" to allow for more guesses

@@ -19,36 +19,61 @@ def test_pull_from_word_bank():
     assert game.secret_word in ["cat", "dog", "rabbit"]
 
 """
-Given the users guesses an incorrect letter record and report the incorrect guess
+Given a word list (we will provide) secret_word has been selected
 """
-def test_guess_word_returns_valid_letter(monkeypatch):
+def test_game_selects_secret_word():
+    game = Hangman(["cat", "dog", "rabbit"], secret_word = "rabbit")
+    assert game.secret_word == "rabbit"
+
+"""
+Given the users guesses an a valid alphabetical letter. 
+"""
+def test_guess_word_returns_valid_alphabetical_letter(monkeypatch):
     monkeypatch.setattr("builtins.input", lambda: "a")
     result = guess_word("")
     assert result == "a"
 
+"""
+Given the users inputs more than one letter a message is displayed to prompt user 
+of error and how to correct. 
+"""
 def test_guess_word_rejects_multiple_letters(monkeypatch):
     answers = iter(["abc", "b"])
     monkeypatch.setattr("builtins.input", lambda: next(answers))
-
     result = guess_word("")
-
     assert "⚠️  Please enter a single letter. ⚠️" 
     assert result == "b"
 
+"""
+Given the users inputs already used letter a message is displayed to prompt user 
+of error and how to correct. 
+"""
 def test_guess_word_rejects_already_guessed_letter(monkeypatch):
     answers = iter(["a", "b"])
     monkeypatch.setattr("builtins.input", lambda: next(answers))
-
     result = guess_word("a")
-
     assert result == "b"
     assert "⚠️  You've already guessed that letter, please guess a different letter! ⚠️"
 
+"""
+Given the users inputs a number a message is displayed to prompt user 
+of error and how to correct. 
+"""
 def test_guess_word_rejects_number(monkeypatch):
     answers = iter(["7", "c"])
     monkeypatch.setattr("builtins.input", lambda: next(answers))
-
     result = guess_word("")
-
     assert result == "c"
     assert "⚠️  This has to be a letter! ⚠️"
+
+"""
+Given the users inputs a symbol a message is displayed to prompt user 
+of error and how to correct. 
+"""
+def test_guess_word_rejects_symbol(monkeypatch):
+    answers = iter(["%", "c"])
+    monkeypatch.setattr("builtins.input", lambda: next(answers))
+    result = guess_word("")
+    assert result == "c"
+    assert "⚠️  This has to be a letter! ⚠️"
+
